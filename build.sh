@@ -25,4 +25,4 @@ xclean)
         find . -name .deps -prune -exec rm -rf {} \;
         echo 'done'
         ;;
-
+esac
