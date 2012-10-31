@@ -131,6 +131,22 @@
 (global-set-key "\C-cd" 'sdcv-search-input)
 
 
+;; python-mode settings
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist(cons '("python" . python-mode)
+                             interpreter-mode-alist))
+;; path to the python interpreter
+(setq py-python-command "python")
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-autoload "pymacs")
+
+(require 'pycomplete)
 
 ;;;;Org2blog wirte blog in emacs with org-mode
 (add-to-list 'load-path "~/.emacs.d/org-7.7/lisp")
@@ -318,6 +334,12 @@
 	     (setq tab-width 2)
 	     (setq indent-tabs-mode nil)))
 
+;;set python style
+(add-hook 'python-mode-hook
+	  '(lambda()
+	     (setq c-basic-offset 2)
+	     (setq tab-width 2)
+	     (setq indent-tabs-mode nil)))
 ;;--------------------eshell----------------------
 ;; eshell
 ;(setq eshell-directory-name (concat self-emacs-home "/.eshell"))
